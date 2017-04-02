@@ -14,10 +14,11 @@
   <%= form_for User.new do |f| %>
 
   <div class="form-group">
-  
-     <%= form_tag users_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-<%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2 typeahead', id: "typeahead"%>
-  <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+
+
+<%= form_tag users_path, method: :get do %>
+<%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2 typeahead', id: "typeahead" %>
+<%= submit_tag "Search" %>
 <% end %>
 </div>
 </div>
@@ -41,7 +42,7 @@
               <% for friendship in current_user.friendships %>
               <div class="row">
               <div class="col-sm-3">
-              <h4>Someone</h4>
+              <!-- <h4><%= friendship.friend.name%></h4> -->
               <img src="<%= friendship.friend.avatar%>" width="80px" height="80px" class="img-thumbnail"/>
 
             <br/>
@@ -65,4 +66,7 @@
   </div>
 
 </div>
+<p>
+  <%= link_to "Find Friends", users_path %>
+</p>
 </div>

@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
+    @users = if params[:query].present?
+      User.search params[:query], match: :word_start
+    else
+      User.all
+    end
   end
 
   def autocomplete

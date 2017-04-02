@@ -11779,3 +11779,2434 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:32:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 451ms (Views: 414.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:32:09 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 94ms (Views: 88.4ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-01 22:32:17 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OcKXdahjQ/lL50YJmD7gPX1MeoWctNVfK3IpxssBI4WFgDyXaTm2Z+zMOYkZLwuGlbjyFobErMNni0gOwxDyVA=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (57.5ms)[0m  {"id":1}
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (Searchkick: 57.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:32:18 +0200
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:32:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:32:27 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jv8VlhzuOfwnkJOZAu2KzDvSLFrjzoSUv6CB8EuI5kBFRjVVkPmEKPdOaYNHpQIGbPvQRk/p++bJj8joNJT3ig==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-01 20:32:27', `sign_in_count` = 2, `updated_at` = '2017-04-01 20:32:27' WHERE `users`.`id` = 2[0m
+  [1m[35m (35.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (12.1ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 349ms (ActiveRecord: 36.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:32:27 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:32:31 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.7ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 73ms (Views: 67.9ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-01 22:32:44 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0N1mjorz3qEU6Kj5zRlaltBb+4SQ8penYAxQw9Wo1znDAnWlvB8VUD752O585yAGPNjIMbFOf/ppHYkdwpl4eQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (10.4ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (Searchkick: 10.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:32:44 +0200
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:32:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 62ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-04-01 22:32:47 +0200
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-04-01 22:32:48 +0200
+Started GET "/users/auth/google_oauth2/callback?state=9ac9af9ed2c95f354812818f0d824dc34ce4a49f63ee5f59&code=4/D6a4HTOBzWnGJaBUkFPm74hC9X2vLXq40nweSO5Xvi8" for 127.0.0.1 at 2017-04-01 22:32:48 +0200
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"9ac9af9ed2c95f354812818f0d824dc34ce4a49f63ee5f59", "code"=>"4/D6a4HTOBzWnGJaBUkFPm74hC9X2vLXq40nweSO5Xvi8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '103350660194913689108' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-01 20:32:50', `last_sign_in_at` = '2017-04-01 19:56:03', `sign_in_count` = 3, `updated_at` = '2017-04-01 20:32:50' WHERE `users`.`id` = 1[0m
+  [1m[35m (50.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (8.4ms)[0m  {"id":1}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 73ms (Searchkick: 8.4ms | ActiveRecord: 51.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:32:50 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:32:50 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 56ms (Views: 53.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:32:53 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 81ms (Views: 75.2ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1000[0m
+  [1m[33mUser Import (61.8ms)[0m  {"count":6}
+  [1m[33mUser Search (343.0ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"iti","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"iti","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"iti","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"iti","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:42:17 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 166ms (Views: 161.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:42:22 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_navigation.html.erb (10.9ms)
+Completed 200 OK in 98ms (Views: 93.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-01 22:42:45 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x08exWzyWNZu89imdCeLtKQyCehPqzDMIXNTiTuuCqtOKsQ9UG21tjZYLKgND8NjI+OEn5JD0QcVhEDnY2ZxFw==", "query"=>"hagerelsayed39@gmail.com", "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:42:45 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 51ms (Views: 48.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:44:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 475ms (Views: 415.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:44:04 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (57.6ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 131ms (Views: 122.5ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-01 22:44:39 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I2H0WUNk9dRZxSNIz8HH1z7knL5zWG/BF2mL4Sm4+Y+qBC6hf/sYtAFu10a26Y8AuTURya6wjgojnpiPcXCCMw==", "query"=>"iti@gmail.com", "commit"=>"Search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:44:39 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 59ms (Views: 56.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:44:42 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 72ms (Views: 68.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:45:10 +0200
+Processing by FriendsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:45:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-04-01 22:45:14 +0200
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-04-01 22:45:14 +0200
+Started GET "/users/auth/facebook/callback?code=AQBo7uTe1B8ORYElJLZ_rCgzUE5kGbWc9viAyQVHkJqbyLceWLHpCNqSk-Db59ScDEmgPRhQv1mVvnsrUYQ5O_XrbV_xPLXY5V1uUi1AwCztuFTULqkybCBYTEUBm8hZHqu-UIpuTc1sFC7FpykHKeicL5H4KxL81mITDSlxlGd4N9HQ5R27kIQfcdk8eWASd7IuYKkfT5lpl1Pojb3DWzLV1rOlzUJodQo6Yht8TMxGqdAyMd2SsRNvo3kD3ixUmJOWAX4iXmBeZ_Il9brk2xWCAPDbGKBFtE-LeSX7JNN2Lo3saJFWfSpuM1Eca2A94qBwA06Ab0xmlPxR1lMDYdYg&state=75dd279c9d66b8e24f113c9ccfa755fb2674bd0350240ef8" for 127.0.0.1 at 2017-04-01 22:45:26 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBo7uTe1B8ORYElJLZ_rCgzUE5kGbWc9viAyQVHkJqbyLceWLHpCNqSk-Db59ScDEmgPRhQv1mVvnsrUYQ5O_XrbV_xPLXY5V1uUi1AwCztuFTULqkybCBYTEUBm8hZHqu-UIpuTc1sFC7FpykHKeicL5H4KxL81mITDSlxlGd4N9HQ5R27kIQfcdk8eWASd7IuYKkfT5lpl1Pojb3DWzLV1rOlzUJodQo6Yht8TMxGqdAyMd2SsRNvo3kD3ixUmJOWAX4iXmBeZ_Il9brk2xWCAPDbGKBFtE-LeSX7JNN2Lo3saJFWfSpuM1Eca2A94qBwA06Ab0xmlPxR1lMDYdYg", "state"=>"75dd279c9d66b8e24f113c9ccfa755fb2674bd0350240ef8"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`provider` = 'facebook' AND `users`.`uid` = '150033905522177' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hagerelsayed128@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `created_at`, `updated_at`, `encrypted_password`, `provider`, `uid`) VALUES ('hagerelsayed128@gmail.com', '2017-04-01 20:45:29', '2017-04-01 20:45:29', '$2a$11$H3FqCRGHDYYFaZyJgt55l.TuSjUQi7PxmheHsoW2ejBxTujC4UdJC', 'facebook', '150033905522177')[0m
+  [1m[35m (50.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (28.4ms)[0m  {"id":7}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-04-01 20:45:29', `last_sign_in_at` = '2017-04-01 20:45:29', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 7[0m
+  [1m[35m (38.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (7.6ms)[0m  {"id":7}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 403ms (Searchkick: 36.1ms | ActiveRecord: 92.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:45:29 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:45:30 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 69ms (Views: 63.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:45:33 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 7[0m
+  Rendered friends/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+Completed 200 OK in 81ms (Views: 76.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:46:13 +0200
+Processing by FriendsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:46:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-01 22:46:30 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eEe1om85eGqSShPUKrVnm8EUWy+cQpmx50SSEN0/DK1QqwoPiQt4pS//bDGzGvYNzLL+fYp09Ke1vTN0VPAm/g==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-01 20:46:30', `last_sign_in_at` = '2017-04-01 20:32:27', `sign_in_count` = 3, `updated_at` = '2017-04-01 20:46:30' WHERE `users`.`id` = 2[0m
+  [1m[35m (33.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (15.8ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 35.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 22:46:31 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 66ms (Views: 62.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:46:34 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+Completed 200 OK in 86ms (Views: 81.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:46:47 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 78ms (Views: 71.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 22:47:12 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.7ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 69ms (Views: 65.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1/orders" for 127.0.0.1 at 2017-04-01 22:55:12 +0200
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT `orders`.* FROM `orders`[0m
+  Rendered orders/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 81ms (Views: 64.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1/orders" for 127.0.0.1 at 2017-04-01 22:57:56 +0200
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT `orders`.* FROM `orders`[0m
+  Rendered orders/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1/orders" for 127.0.0.1 at 2017-04-01 22:59:18 +0200
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT `orders`.* FROM `orders`[0m
+  Rendered orders/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 73ms (Views: 66.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/orders" for 127.0.0.1 at 2017-04-01 23:00:23 +0200
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT `orders`.* FROM `orders`[0m
+  Rendered orders/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 76ms (Views: 69.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/orders" for 127.0.0.1 at 2017-04-01 23:00:48 +0200
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT `orders`.* FROM `orders`[0m
+  Rendered orders/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/orders/new" for 127.0.0.1 at 2017-04-01 23:00:58 +0200
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (74.7ms)
+  Rendered orders/new.html.erb within layouts/application (76.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 159ms (Views: 133.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/1/orders/new" for 127.0.0.1 at 2017-04-01 23:02:12 +0200
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (8.6ms)
+  Rendered orders/new.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 69ms (Views: 63.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/orders/new" for 127.0.0.1 at 2017-04-01 23:02:17 +0200
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (9.1ms)
+  Rendered orders/new.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 84ms (Views: 75.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/orders/new" for 127.0.0.1 at 2017-04-01 23:03:50 +0200
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (13.3ms)
+  Rendered orders/new.html.erb within layouts/application (16.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 108ms (Views: 96.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/orders/new" for 127.0.0.1 at 2017-04-01 23:06:37 +0200
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (7.0ms)
+  Rendered orders/new.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navigation.html.erb (9.0ms)
+Completed 200 OK in 105ms (Views: 67.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:06:39 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.8ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (37.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 93ms (Views: 75.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:06:51 +0200
+Processing by FriendsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:06:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:07:06 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/uSlM13VidfBIrQx0Kdi/ha5KVOp8LxhN++vFfQ1/H2yrLLuk5vFTDmDcXmdrTIBohc9aYXYAeSvbxDC/UY7SQ==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-01 21:07:06', `last_sign_in_at` = '2017-04-01 20:46:30', `sign_in_count` = 4, `updated_at` = '2017-04-01 21:07:06' WHERE `users`.`id` = 2[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (10.7ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 262ms (ActiveRecord: 33.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:07:06 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 66ms (Views: 63.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:07:08 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 82ms (Views: 77.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-01 23:07:46 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c6bPKk2tbpZeuXXzcYCo2RyIdPgpz3n1gcGPG1PLODL1165O3+h78Zinf4Drs1vmbky5nHqBTbiYYWf/wls3jw==", "query"=>"iti@gmail.com", "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:07:46 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+Completed 200 OK in 69ms (Views: 66.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:07:49 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 87ms (Views: 81.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:08:05 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 68ms (Views: 62.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:11:01 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 59ms (Views: 55.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (71.5ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 507ms (Views: 448.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:38 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navigation.html.erb (4.7ms)
+Completed 200 OK in 171ms (Views: 166.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:50 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 98ms (Views: 93.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:51 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (1.2ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 93ms (Views: 85.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:52 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (1.0ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 73ms (Views: 66.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:52 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 80ms (Views: 75.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2/groups" for 127.0.0.1 at 2017-04-01 23:12:53 +0200
+Processing by GroupsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups`[0m
+  Rendered groups/index.html.erb within layouts/application (24.8ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 113ms (Views: 85.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:12:54 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 114ms (Views: 105.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/2/groups" for 127.0.0.1 at 2017-04-01 23:12:55 +0200
+Processing by GroupsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups`[0m
+  Rendered groups/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 73ms (Views: 67.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:13:03 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 76ms (Views: 70.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-01 23:13:12 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+0O3duvFbOkpMaCUSm4xFKmaOFQAFvhLTrjkR6mhkHV9MtYSeYB5ju8vqufQXcIr2171MFNYzAZXGAyjODGfyA=="}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (147.2ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 176ms (Searchkick: 147.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:13:12 +0200
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:13:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 70ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:13:23 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_navigation.html.erb (9.9ms)
+Completed 200 OK in 100ms (Views: 93.4ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '1@g.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:17:47 +0200
+  
+SyntaxError (/home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/config/routes.rb:19: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+config/routes.rb:19: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (19.7ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.8ms)
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:17:57 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (19.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 107ms (Views: 79.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:18:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 109ms (Views: 105.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:18:13 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+gT/dH+YiO8JWuWdVV6lOhy9AjbnGwC7wnggn7yZMH9a5ng/Usl3hIv7Qu+0wub1iCxwVmXKvfGrMiwyq74I/w==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-01 21:18:14', `last_sign_in_at` = '2017-04-01 21:07:06', `sign_in_count` = 5, `updated_at` = '2017-04-01 21:18:14' WHERE `users`.`id` = 2[0m
+  [1m[35m (33.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (35.4ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 305ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:18:14 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 65ms (Views: 61.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:18:16 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 82ms (Views: 79.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:24:28 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (1.1ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 96ms (Views: 86.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:32:51 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (349.6ms)
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fbf19070028>:0x00000001d498f0>):
+    16:   <div class="form-group">
+    17:    <%= form_tag users_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+    18: <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2 typeahead', id: "typeahead"%>
+    19: <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+    20: <% end %>
+    21: </div>
+    22: </div>
+  
+app/views/friends/index.html.erb:19:in `block (2 levels) in _app_views_friends_index_html_erb___3188397149159011174_15757780'
+app/views/friends/index.html.erb:17:in `block in _app_views_friends_index_html_erb___3188397149159011174_15757780'
+app/views/friends/index.html.erb:14:in `_app_views_friends_index_html_erb___3188397149159011174_15757780'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (21.4ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.1ms)
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:33:30 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 98ms (Views: 91.0ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-01 23:33:51 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YWHZbHD7rGpp3evhLHljvidccFvYD+0d3IWcwSr8Arx5XfD94fypBxr8+Jwji1pdC/eSifzdJzhyvhLhXr45uw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (11.0ms)[0m  {"id":7}
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (Searchkick: 11.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:33:51 +0200
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-01 23:33:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 76ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-04-01 23:33:54 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (42.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 126ms (Views: 124.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-01 23:34:07 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"38DSu7G6gvMQ2MhhOAVfKfTz9RCe2h1j1lgy8ek6RHFAKBDahouLGN760O5Y81mLYCs1TDCKbeLot3MeGW5N9Q==", "user"=>{"name"=>"admin", "email"=>"admin555@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar_cache"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'admin555@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `created_at`, `updated_at`, `encrypted_password`) VALUES ('admin', 'admin555@gmail.com', '2017-04-01 21:34:07', '2017-04-01 21:34:07', '$2a$11$QP1eAmna16Glsr78iaYYI.F8JHxEYvCBbZOSZkfnym3FgRqYgWMF.')[0m
+  [1m[35m (63.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (11.9ms)[0m  {"id":8}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-04-01 21:34:07', `last_sign_in_at` = '2017-04-01 21:34:07', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 8[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (8.6ms)[0m  {"id":8}
+Redirected to http://localhost:3000/
+Completed 302 Found in 351ms (ActiveRecord: 104.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-01 23:34:07 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 68ms (Views: 65.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:34:12 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 8[0m
+  Rendered friends/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 81ms (Views: 74.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2017-04-01 23:35:46 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"I3XSD+jVmRYfX3ZBXBzq6sacMocKC0KNN6IkZPTzv42qEAj31Ep0dkf0gk8lNKI9QU2/8Nfjo0YDVTcKrDvEMQ==", "friend_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (1, 1, '2017-04-01 21:35:46', '2017-04-01 21:35:46')[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 59ms (ActiveRecord: 51.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-01 23:35:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 63ms (Views: 59.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-01 23:35:53 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+Completed 200 OK in 123ms (Views: 118.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:36:00 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 124ms (Views: 118.9ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2017-04-01 23:36:44 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"prRYvGeISIStd0vnf/eG+lO6UWn1DY2Uaj5GGMVLjzkv0YJEWxel5PXcv+kG384t1GvcHijlbF9eyVV2nYP0hQ==", "friend_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (1, 1, '2017-04-01 21:36:44', '2017-04-01 21:36:44')[0m
+  [1m[35m (48.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 56ms (ActiveRecord: 49.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-01 23:36:44 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 57ms (Views: 53.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-01 23:36:46 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+Completed 200 OK in 78ms (Views: 73.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:36:52 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered friends/index.html.erb within layouts/application (25.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 112ms (Views: 106.6ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/friendships/4" for 127.0.0.1 at 2017-04-01 23:37:06 +0200
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rMGHoD5XuvZaGnyavxPKDrifcIHPrxOi9l6XUxm9Hi0lpF1YAshXlgKxiJTGO4LZP0799hJH8mnCqYQ9QXVlkQ==", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM `friendships` WHERE `friendships`.`id` = 4[0m
+  [1m[35m (78.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 87ms (ActiveRecord: 80.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-01 23:37:06 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 59ms (Views: 55.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-01 23:37:09 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 84ms (Views: 80.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-01 23:37:11 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 87ms (Views: 79.7ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/friendships/3" for 127.0.0.1 at 2017-04-01 23:37:15 +0200
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mLzFAe6Qr3A9QsRqJavfIJE8hTrsNB6BAgC85Kj7UHQR2R/50g9CEGXpMGRcg5f3Fu0ITTHc/0o296+K8DMryA==", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `friendships` WHERE `friendships`.`id` = 3[0m
+  [1m[35m (63.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 70ms (ActiveRecord: 64.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-01 23:37:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 66ms (Views: 61.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:39:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (46.7ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 682ms (Views: 638.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:39:27 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+Completed 200 OK in 82ms (Views: 76.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:39:39 +0200
+Processing by FriendsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 07:39:39 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (59.0ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 168ms (Views: 147.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-02 07:39:51 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3fvIGJE0eHQpedQswRqzhxqNcicpPJ0QHozzyyc2FrCuOME1NsjMfyzwGf9GWkFBRn+cyKEtOuDL/7KNEb7d+w==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.2ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-02 05:39:51', `last_sign_in_at` = '2017-04-01 21:18:14', `sign_in_count` = 6, `updated_at` = '2017-04-02 05:39:51' WHERE `users`.`id` = 2[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (100.4ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 438ms (ActiveRecord: 34.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 07:39:51 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 87ms (Views: 72.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:39:53 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 66ms (Views: 60.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:43:30 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 111ms (Views: 76.6ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2017-04-02 07:43:40 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"9bjRzLUCM6d/Zm/eSbRaHulIOqFdfthGsjNPdHE5WAh83Qs0iZ3exyfNm9AwnBLJbpm31oCWOY2GxFwaKfEjtA==", "friend_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (1, 1, '2017-04-02 05:43:40', '2017-04-02 05:43:40')[0m
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 33ms (ActiveRecord: 26.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-02 07:43:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 62ms (Views: 49.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:44:59 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (17.3ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 94ms (Views: 86.4ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/friendships/3" for 127.0.0.1 at 2017-04-02 07:45:04 +0200
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qtB6BfHooFRnPJ7huqJIu+FvWvSjuBzZLfGvoX2DsRMjtaD9zXdNND+Xau/DigBsZr7Xg35Q/RIZBrzPJUvKrw==", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM `friendships` WHERE `friendships`.`id` = 3[0m
+  [1m[35m (78.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 92ms (ActiveRecord: 81.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-02 07:45:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 60ms (Views: 56.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:46:10 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 77ms (Views: 70.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2017-04-02 07:46:15 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"qSwaruR8dcRDYLpkXpprwVdDvxX7NNCXnq6gsZBpk/EgScBW2OOYpBvLTmonsiMW0JIyYibcMVyqWbPfyKHoTQ==", "friend_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (1, 1, '2017-04-02 05:46:15', '2017-04-02 05:46:15')[0m
+  [1m[35m (56.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 66ms (ActiveRecord: 57.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-02 07:46:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 70ms (Views: 60.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:48:22 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 93ms (Views: 86.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:48:58 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.7ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (18.2ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 103ms (Views: 95.5ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/friendships/4" for 127.0.0.1 at 2017-04-02 07:49:04 +0200
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A6BDjMkP6Wafq3N0vcYgD8KZhlBQjgZenCdKQaZ4g6qKxZl09ZAEBscAh3rE7mjYRUgLJ41m55Wo0Fkv/rD4Fg==", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Load (1.2ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `friendships` WHERE `friendships`.`id` = 4[0m
+  [1m[35m (180.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 191ms (ActiveRecord: 182.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-02 07:49:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 56ms (Views: 51.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:49:34 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 70ms (Views: 65.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:53:48 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 93ms (Views: 86.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 07:53:52 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (226.9ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 306ms (Views: 297.4ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/friendships?friend_id=8" for 127.0.0.1 at 2017-04-02 07:54:10 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"o/yZTCeHS0c76+0a+QxaaM0cBwsUJvJQwI/2ouBfIycqmUO0GximJ2NAGRSAJBK/Ss2KfMnOE5v0eOXMuJdYmw==", "friend_id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (1, 8, '2017-04-02 05:54:10', '2017-04-02 05:54:10')[0m
+  [1m[35m (45.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 55ms (ActiveRecord: 47.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-02 07:54:10 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 66ms (Views: 60.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 07:54:13 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (31.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 88ms (Views: 78.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 07:54:25 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 83ms (Views: 77.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:00:08 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (30.6ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 89ms (Views: 77.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:01:32 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (32.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 96ms (Views: 85.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:01:39 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (31.5ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 89ms (Views: 75.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:01:57 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (32.0ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 103ms (Views: 92.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:02:00 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (39.6ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 111ms (Views: 98.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:02:06 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (39.8ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 114ms (Views: 102.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 08:02:41 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 2 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 1 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 1 LIMIT 1[0m
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1 AND (friend_id = 8 AND user_id = 1) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (32.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 93ms (Views: 81.6ms | ActiveRecord: 4.9ms)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2017-04-02 08:02:57 +0200
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HlfWWDqd9A7s6oyWh6XAhXIDBk8y/KvHOzbXb7b9s1iXMgygBgIZbrRBeJj+jYhS9dKLOO8USgwPwcQB7jXI5A==", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM `groups_users` WHERE `groups_users`.`user_id` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 13.6ms)
+
+
+  
+NameError (uninitialized constant User::OauthCredential):
+  
+app/controllers/users_controller.rb:68:in `destroy'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.1ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
+Started DELETE "/users/3" for 127.0.0.1 at 2017-04-02 08:04:46 +0200
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HlfWWDqd9A7s6oyWh6XAhXIDBk8y/KvHOzbXb7b9s1iXMgygBgIZbrRBeJj+jYhS9dKLOO8USgwPwcQB7jXI5A==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM `groups_users` WHERE `groups_users`.`user_id` = 3[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.6ms)
+
+
+  
+NameError (uninitialized constant User::OauthCredential):
+  
+app/controllers/users_controller.rb:68:in `destroy'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.6ms)
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:05:33 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (17.8ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+Completed 200 OK in 115ms (Views: 108.2ms | ActiveRecord: 2.1ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (9.5ms)[0m  [1m[34mSELECT GET_LOCK('8097713320465874280', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('8097713320465874280')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `friendships`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW CREATE TABLE `groups`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'groups'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `groups_users`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `order_details`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'order_details'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW CREATE TABLE `orders`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'orders'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (37.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '1@g.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hager@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '5djfk4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '4@g.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1000[0m
+  [1m[33mUser Import (257.2ms)[0m  {"count":8}
+  [1m[33mUser Search (137.1ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"iti","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"iti","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"iti","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"iti","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  [1m[33mUser Search (39.8ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+Started GET "/" for 127.0.0.1 at 2017-04-02 08:14:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'typeahead' with type 'application/javascript'
+Checked in these paths: 
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/config
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/images
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/javascripts
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/stylesheets
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/vendor/assets/javascripts
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/vendor/assets/stylesheets
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/rails4-autocomplete-1.1.1/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actioncable-5.0.2/lib/assets/compiled
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/fonts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/images):
+    4:     <title>YallaNotlob</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:18
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3147616912081100666_49197160'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.9ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.9ms)
+Started GET "/" for 127.0.0.1 at 2017-04-02 08:15:25 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 356ms (Views: 350.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:15:28 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (312.2ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `articles_path' for #<#<Class:0x007f370dc87af8>:0x007f370dc868b0>
+Did you mean?  asset_path):
+    14:   <%= form_for User.new do |f| %>
+    15: 
+    16:   <div class="form-group">
+    17:     <%= form_tag articles_path, method: :get do %>
+    18:   <%= text_field_tag :query, params[:query], class: 'form-control', id: "article_search" %>
+    19:   <%= submit_tag 'Search' %>
+    20: <% end %>
+  
+app/views/friends/index.html.erb:17:in `block in _app_views_friends_index_html_erb__3198150197362328347_69937215611400'
+app/views/friends/index.html.erb:14:in `_app_views_friends_index_html_erb__3198150197362328347_69937215611400'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.4ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.7ms)
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:16:04 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (54.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 122ms (Views: 112.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:16:10 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 103ms (Views: 97.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:16:19 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 120ms (Views: 110.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-02 08:16:34 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WFYpxz1qped5pFM4ni0ESGepjlOPO3LzXtBUEF8GXD7RM/M/AfVIhyEPpzbnBUyf4HgDJFLTkzhqJ0d+B84ngg==", "query"=>"", "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 08:16:34 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 59ms (Views: 53.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 08:17:21 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 93ms (Views: 88.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:17:23 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 71ms (Views: 66.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:17:25 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 104ms (Views: 97.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:17:59 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 83ms (Views: 75.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 08:18:17 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.8ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 72ms (Views: 66.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:00:51 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 163ms (Views: 158.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:00:54 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 115ms (Views: 108.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:01:55 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 68ms (Views: 63.0ms | ActiveRecord: 1.9ms)
+
+
+  [1m[33mUser Search (90.5ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:04:11 +0200
+Processing by FriendsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:04:11 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (45.0ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 191ms (Views: 187.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:04:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'Bloodhound' with type 'application/javascript'
+Checked in these paths: 
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/config
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/images
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/javascripts
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/app/assets/stylesheets
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/vendor/assets/javascripts
+  /home/hagerelsayed/Desktop/railsCopy/Yalla_Notlob/Yalla_Notlob/vendor/assets/stylesheets
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/rails4-autocomplete-1.1.1/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actioncable-5.0.2/lib/assets/compiled
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/fonts
+  /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/bootstrap-sass-3.3.7/assets/images):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body>
+  
+app/assets/javascripts/application.js:18
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3147616912081100666_69937213063560'
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.0ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/hagerelsayed/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.6ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:05:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 244ms (Views: 242.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:05:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 67ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:06:21 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UDVsYzhWzHhNVT7l++wBcNkJBksHwI/qoI5EN7mS7zAlBIO4mFJDvD6qnWbOvYTvx7/dO3vFzu2c99FvKRlImA==", "user"=>{"email"=>"iti@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'iti@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-04-02 07:06:21', `last_sign_in_at` = '2017-04-02 05:39:51', `sign_in_count` = 7, `updated_at` = '2017-04-02 07:06:21' WHERE `users`.`id` = 2[0m
+  [1m[35m (27.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[33mUser Store (45.6ms)[0m  {"id":2}
+Redirected to http://localhost:3000/
+Completed 302 Found in 305ms (ActiveRecord: 28.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 09:06:21 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:06:24 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+Completed 200 OK in 92ms (Views: 88.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:08:56 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (1.2ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 94ms (Views: 85.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:08:58 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 89ms (Views: 83.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/?query=h" for 127.0.0.1 at 2017-04-02 09:09:04 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"h"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (13.2ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"h","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"h","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"h","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"h","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.5ms)
+Completed 200 OK in 41ms (Views: 7.9ms | Searchkick: 13.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/?query=ha" for 127.0.0.1 at 2017-04-02 09:09:04 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"ha"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (17.1ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.7ms)
+Completed 200 OK in 42ms (Views: 11.9ms | Searchkick: 17.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:09:13 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+Completed 200 OK in 78ms (Views: 73.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/?query=i" for 127.0.0.1 at 2017-04-02 09:09:16 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"i"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (14.6ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"i","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"i","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"i","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"i","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.5ms)
+Completed 200 OK in 40ms (Views: 10.3ms | Searchkick: 14.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/?query=h" for 127.0.0.1 at 2017-04-02 09:09:20 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"h"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (19.2ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"h","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"h","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"h","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"h","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.7ms)
+Completed 200 OK in 51ms (Views: 15.5ms | Searchkick: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/?query=ha" for 127.0.0.1 at 2017-04-02 09:09:20 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"ha"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (11.9ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.5ms)
+Completed 200 OK in 35ms (Views: 8.9ms | Searchkick: 11.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/?query=it" for 127.0.0.1 at 2017-04-02 09:09:23 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"it"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (14.0ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"it","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"it","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"it","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"it","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  Rendered users/_user.json.jbuilder (1.2ms)
+  Rendered users/index.json.jbuilder (36.3ms)
+Completed 200 OK in 77ms (Views: 46.1ms | Searchkick: 14.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/?query=iti%40gmail.com" for 127.0.0.1 at 2017-04-02 09:09:28 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"iti@gmail.com"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (20.1ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"iti@gmail.com","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  Rendered users/_user.json.jbuilder (1.1ms)
+  Rendered users/index.json.jbuilder (6.0ms)
+Completed 200 OK in 50ms (Views: 16.3ms | Searchkick: 20.1ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-02 09:09:43 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kZ3bDztWMZSpU6XS1aQff2ziTvUCDo4OZmriohG46fjQgetFhvfbWMK3HYh3KvZZZAUDU8I6FOSWlP/z9BoXMg==", "query"=>"iti@gmail.com", "commit"=>"Search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 09:09:43 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 80ms (Views: 77.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:09:49 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 72ms (Views: 66.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:09:52 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  Rendered friends/index.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 100ms (Views: 91.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/?query=ha" for 127.0.0.1 at 2017-04-02 09:09:59 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"ha"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (12.0ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"ha","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"ha","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.5ms)
+Completed 200 OK in 34ms (Views: 9.5ms | Searchkick: 12.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/?query=hage" for 127.0.0.1 at 2017-04-02 09:10:00 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"hage"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (19.5ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"hage","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"hage","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"hage","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"hage","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (18.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 4)[0m
+  Rendered users/_user.json.jbuilder (1.1ms)
+  Rendered users/_user.json.jbuilder (0.5ms)
+  Rendered users/index.json.jbuilder (25.8ms)
+Completed 200 OK in 70ms (Views: 16.9ms | Searchkick: 19.5ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/users/?query=hag" for 127.0.0.1 at 2017-04-02 09:10:01 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"hag"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (14.7ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"hag","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"hag","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"hag","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"hag","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.5ms)
+Completed 200 OK in 37ms (Views: 9.2ms | Searchkick: 14.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/?query=hagg" for 127.0.0.1 at 2017-04-02 09:10:02 +0200
+Processing by UsersController#index as JSON
+  Parameters: {"query"=>"hagg"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[33mUser Search (14.1ms)[0m  curl http://localhost:9200/users_development/_search?pretty -d '{"query":{"dis_max":{"queries":[{"match":{"_all":{"query":"hagg","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"_all":{"query":"hagg","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"_all":{"query":"hagg","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"_all":{"query":"hagg","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"size":1000,"from":0,"timeout":"11s","_source":false}'
+  Rendering users/index.json.jbuilder
+  Rendered users/index.json.jbuilder (0.6ms)
+Completed 200 OK in 41ms (Views: 11.7ms | Searchkick: 14.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-02 09:10:15 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PQI6fGtDlMH0tWVdmq5pJnvXfyJue9No/INNYm8SB3l8Hgo21uJ+DZ9R3Qc4IIAAczAyhK5PSYIMfVAzirD5sw==", "query"=>"hager@g.com", "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 09:10:15 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+Completed 200 OK in 79ms (Views: 75.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 09:10:49 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (34.2ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 91ms (Views: 84.0ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2017-04-02 09:10:54 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"e740Z38r78yHOeqKcLtWYNJv9zRTnrqIPKGYGEHRKZE6ogQtwooFAOzdUtDSNb9G2oi6kpOqIGLMX4VJpHPXWw==", "friend_id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (2, 1, '2017-04-02 07:10:54', '2017-04-02 07:10:54')[0m
+  [1m[35m (49.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 59ms (ActiveRecord: 51.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-02 09:10:54 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 63ms (Views: 60.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-02 09:11:01 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 1 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Load (0.8ms)[0m  [1m[34mSELECT  `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2 AND (friend_id = 1 AND user_id = 2) ORDER BY `friendships`.`id` ASC LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 2 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 3 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 4 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 5 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 6 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 7 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  [1m[36mFriendship Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `friendships` WHERE `friendships`.`user_id` = 2 AND `friendships`.`friend_id` = 8 AND `friendships`.`user_id` = 2 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (32.2ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 111ms (Views: 101.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:11:06 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 80ms (Views: 73.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/friendships?friend_id=8" for 127.0.0.1 at 2017-04-02 09:11:17 +0200
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"vTDOPcIAIj7KIrMUbzvdLNIqDcuchzPYryz4dOxDGWn8LP53f6HI8qHGC07NtTQK2s1AbVyzqTJf0uUlCeHnow==", "friend_id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `friendships` (`user_id`, `friend_id`, `created_at`, `updated_at`) VALUES (2, 8, '2017-04-02 07:11:17', '2017-04-02 07:11:17')[0m
+  [1m[35m (56.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 68ms (ActiveRecord: 58.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-02 09:11:17 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 66ms (Views: 62.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:11:23 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 113ms (Views: 106.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2017-04-02 09:12:11 +0200
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT `friendships`.* FROM `friendships` WHERE `friendships`.`user_id` = 2[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered friends/index.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 92ms (Views: 86.5ms | ActiveRecord: 1.9ms)
+
+
